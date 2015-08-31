@@ -34,11 +34,12 @@
 
       //Trigger slideshow through event hooks
       $(document).bind('cbox_complete', function(){
-        setTimeout($.colorbox.next, 250);
+        var $timeout = setTimeout($.colorbox.next, 2000);
 
         //Auto close slideshow after last slide
         if($flag == $count) {
           $.colorbox.close();
+          clearTimeout($timeout);
         }
         $flag = $flag + 1;
       });
